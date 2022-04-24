@@ -1,3 +1,7 @@
+let table = document.createElement('table');
+let tr = document.createElement('tr');
+let array = ['IPA', 'Symbols', 'Examples'];
+
 const mandarin = {
     "ɕ": {IPA: "ɕ", Symbols: "x/ㄒ", Examples: "西"},
     "f": {IPA: "f", Symbols: "f/ㄈ", Examples: "非"},

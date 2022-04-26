@@ -52,8 +52,7 @@ const mandarin = {
 }
 console.log(mandarin.consonants[0].IPA)
 
-let lang1values = Object.values(mandarin)
-console.log(lang1values[0].Symbols)
+let lang1Consonants = mandarin.consonants
 
 for (let j = 0; j < array.length; j++) {
   let th = document.createElement('th'); //column

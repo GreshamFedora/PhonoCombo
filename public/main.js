@@ -54,14 +54,15 @@ console.log(mandarin.consonants[0].IPA)
 
 let lang1Consonants = mandarin.consonants
 
-for (let j = 0; j < array.length; j++) {
-  let th = document.createElement('th'); //column
-  let text = document.createTextNode(array[j]); //cell
-  th.appendChild(text);
-  tr.appendChild(th);
-}
-table.appendChild(tr);
 
+for (let j = 0; j < array.length; j++) {
+    let th = document.createElement('th'); //column
+    let text = document.createTextNode(array[j]); //cell
+    th.appendChild(text);
+    tr.appendChild(th);
+  }
+  table.appendChild(tr);
+  
 for (let i = 0; i < lang1values.length; i++) {
   let tr = document.createElement('tr');
 

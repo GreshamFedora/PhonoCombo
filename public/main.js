@@ -62,20 +62,19 @@ for (let j = 0; j < array.length; j++) {
     tr.appendChild(th);
   }
   table.appendChild(tr);
+  for (let i = 0; i < lang1Consonants.length; i++) {
+    let tr = document.createElement('tr');
   
-for (let i = 0; i < lang1values.length; i++) {
-  let tr = document.createElement('tr');
-
-  let td1 = document.createElement('td');
-  let td2 = document.createElement('td');
-  let td3 = document.createElement('td');
-  //let td4 = document.createElement('td');
-
-  let text1 = document.createTextNode(lang1values[i].IPA);
-  let text2 = document.createTextNode(lang1values[i].Symbols);
-  let text3 = document.createTextNode(lang1values[i].Examples);
-  //let text4 = document.createTextNode('Text4');
-
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    //let td4 = document.createElement('td');
+  
+    let text1 = document.createTextNode(lang1Consonants[i].IPA);
+    let text2 = document.createTextNode(lang1Consonants[i].Symbols);
+    let text3 = document.createTextNode(lang1Consonants[i].Examples);
+    //let text4 = document.createTextNode('Text4');
+  
   td1.appendChild(text1);
   td2.appendChild(text2);
   td3.appendChild(text3);

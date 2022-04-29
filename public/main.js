@@ -75,6 +75,7 @@ for (let j = 0; j < array.length; j++) {
     let text3 = document.createTextNode(lang1Consonants[i].Examples);
     //let text4 = document.createTextNode('Text4');
   
+  
   td1.appendChild(text1);
   td2.appendChild(text2);
   td3.appendChild(text3);

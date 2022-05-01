@@ -51,6 +51,33 @@ const languages = {
           {IPA: "oʊ", Symbols: "ou/ㄡ", Examples: "歐/欧"},
       ],
     },
+    cantonese: {
+        consonants: [
+            {IPA: "f", Symbols: "f/ㄈ", Examples: "客"},
+            {IPA: "h", Symbols: "h/ㄏ", Examples: "虎"},
+            {IPA: "j", Symbols: "j/一", Examples: "月"},
+            {IPA: "k", Symbols: "g-/ㄍ", Examples: "家"},
+            {IPA: "k̚", Symbols: "-k/-ㄎ", Examples: "識"},
+            {IPA: "kʰ", Symbols: "k-/ㄎ-", Examples: "卡"},
+            {IPA: "kʷ", Symbols: "gw/ㄍㄨ", Examples: "瓜"},
+            {IPA: "kʷʰ", Symbols: "kw/ㄎㄨ", Examples: "誇"},
+            {IPA: "l", Symbols: "l/ㄌ", Examples: "落"},
+            {IPA: "m̩", Symbols: "m/ㄇ", Examples: "莫/唔"},
+            {IPA: "n", Symbols: "n/ㄋ", Examples: "男"},
+            {IPA: "ŋ", Symbols: "ng/ㄫ ", Examples: "牙"},
+            {IPA: "p", Symbols: "b/ㄅ", Examples: "班"},
+            {IPA: "p̚", Symbols: "-p/-ㄆ", Examples: "濕"},
+            {IPA: "pʰ", Symbols: "p-/ㄆ-", Examples: "拍"},
+            {IPA: "s", Symbols: "s/ㄙ/ㄒ", Examples: "西"},
+            {IPA: "t", Symbols: "d/ㄉ", Examples: "打"},
+            {IPA: "t̚", Symbols: "-t/-ㄊ", Examples: "失"},
+            {IPA: "tʰ", Symbols: "t-/ㄊ-", Examples: "拖"},
+            {IPA: "ts", Symbols: "z/ㄗ/ㄐ", Examples: "將"},
+            {IPA: "tsʰ", Symbols: "c/ㄘ/ㄑ", Examples: "鏘"},
+            {IPA: "w", Symbols: "w/ㄨ", Examples: "活"},
+            {IPA: "ŋ̩", Symbols: "ng/ㄫ ", Examples: "五"},
+        ],
+  
 }
 console.log(mandarin.consonants[0].IPA)
 

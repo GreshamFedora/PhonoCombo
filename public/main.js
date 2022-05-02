@@ -77,8 +77,33 @@ const languages = {
             {IPA: "w", Symbols: "w/ㄨ", Examples: "活"},
             {IPA: "ŋ̩", Symbols: "ng/ㄫ ", Examples: "五"},
         ],
-  
+        vowels: [
+            {IPA: "aː", Symbols: "aa/ㄚ", Examples: "亞"},
+            {IPA: "aːi", Symbols: "aai/ㄞ", Examples: "界"},
+            {IPA: "aːu", Symbols: "aau/ㄠ", Examples: "交"},
+            {IPA: "ɐ", Symbols: "a/--", Examples: "甩"},
+            {IPA: "ɐi", Symbols: "ai/ㄟ", Examples: "矮"},
+            {IPA: "ɐu", Symbols: "au/ㄡ", Examples: "歐"},
+            {IPA: "ei", Symbols: "ei/ㄝ一", Examples: "悲"},
+            {IPA: "ɛː", Symbols: "e/ㄝ", Examples: "些"},
+            {IPA: "ɛːu", Symbols: "eu/ㄝㄨ", Examples: "掉/(口)"},
+            {IPA: "e", Symbols: "i/(-ik/-ing)/一", Examples: "色"},
+            {IPA: "iː", Symbols: "i/(-ik/-ing)/i/一", Examples: "意"},
+            {IPA: "iːu", Symbols: "iu/一ㄨ", Examples: "橋"},
+            {IPA: "ou", Symbols: "ou/ㄛㄨ", Examples: "奧"},
+            {IPA: "ɔː", Symbols: "o/ㄛ", Examples: "我"},
+            {IPA: "ɔːy", Symbols: "oi/ㄛ一", Examples: "哀"},
+            {IPA: "œː", Symbols: "oe*", Examples: "靴"},
+            {IPA: "ɵ", Symbols: "eo/--", Examples: "出"},
+            {IPA: "ɵy", Symbols: "eoi*", Examples: "去"},
+            {IPA: "o", Symbols: "u/(-ik/-ing)/u/ㄨ", Examples: "福"},
+            {IPA: "uː", Symbols: "u/(-ik/-ing)/u/ㄨ", Examples: "鳥"},
+            {IPA: "uːy", Symbols: "ui/ㄨ一", Examples: "回"},
+            {IPA: "yː", Symbols: "yu/ㄩ", Examples: "於"},
+      ],
+    },  
 }
+
 console.log(mandarin.consonants[0].IPA)
 
 let lang1Consonants = mandarin.consonants

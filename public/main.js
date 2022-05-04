@@ -134,7 +134,10 @@ const languages = {
             {IPA: 't̚', Symbols: 't/◌ㄉ', Examples: '七 (tshit)'},
             {IPA: 'k̚', Symbols: 'k/◌ㄍ', Examples: '角 (kak)'},
         ],
-
+        vowels: [
+            {IPA: "a", Symbols: "a/ㄚ", Examples: "鴨 (ah)"}, 
+        ]
+    }
 }
 
 console.log(mandarin.consonants[0].IPA)

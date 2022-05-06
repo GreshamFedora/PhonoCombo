@@ -1,6 +1,3 @@
-let table = document.createElement('table');
-let tr = document.createElement('tr');
-let array = ['IPA', 'Symbols', 'Examples'];
 const languages = {
     mandarin: {
       consonants: [
@@ -52,32 +49,32 @@ const languages = {
       ],
     },
     cantonese: {
-        consonants: [
-            {IPA: "f", Symbols: "f/ㄈ", Examples: "客"},
-            {IPA: "h", Symbols: "h/ㄏ", Examples: "虎"},
-            {IPA: "j", Symbols: "j/一", Examples: "月"},
-            {IPA: "k", Symbols: "g-/ㄍ", Examples: "家"},
-            {IPA: "k̚", Symbols: "-k/-ㄎ", Examples: "識"},
-            {IPA: "kʰ", Symbols: "k-/ㄎ-", Examples: "卡"},
-            {IPA: "kʷ", Symbols: "gw/ㄍㄨ", Examples: "瓜"},
-            {IPA: "kʷʰ", Symbols: "kw/ㄎㄨ", Examples: "誇"},
-            {IPA: "l", Symbols: "l/ㄌ", Examples: "落"},
-            {IPA: "m̩", Symbols: "m/ㄇ", Examples: "莫/唔"},
-            {IPA: "n", Symbols: "n/ㄋ", Examples: "男"},
-            {IPA: "ŋ", Symbols: "ng/ㄫ ", Examples: "牙"},
-            {IPA: "p", Symbols: "b/ㄅ", Examples: "班"},
-            {IPA: "p̚", Symbols: "-p/-ㄆ", Examples: "濕"},
-            {IPA: "pʰ", Symbols: "p-/ㄆ-", Examples: "拍"},
-            {IPA: "s", Symbols: "s/ㄙ/ㄒ", Examples: "西"},
-            {IPA: "t", Symbols: "d/ㄉ", Examples: "打"},
-            {IPA: "t̚", Symbols: "-t/-ㄊ", Examples: "失"},
-            {IPA: "tʰ", Symbols: "t-/ㄊ-", Examples: "拖"},
-            {IPA: "ts", Symbols: "z/ㄗ/ㄐ", Examples: "將"},
-            {IPA: "tsʰ", Symbols: "c/ㄘ/ㄑ", Examples: "鏘"},
-            {IPA: "w", Symbols: "w/ㄨ", Examples: "活"},
-            {IPA: "ŋ̩", Symbols: "ng/ㄫ ", Examples: "五"},
-        ],
-        vowels: [
+      consonants: [
+          {IPA: "f", Symbols: "f/ㄈ", Examples: "客"},
+          {IPA: "h", Symbols: "h/ㄏ", Examples: "虎"},
+          {IPA: "j", Symbols: "j/一", Examples: "月"},
+          {IPA: "k", Symbols: "g-/ㄍ", Examples: "家"},
+          {IPA: "k̚", Symbols: "-k/-ㄎ", Examples: "識"},
+          {IPA: "kʰ", Symbols: "k-/ㄎ-", Examples: "卡"},
+          {IPA: "kʷ", Symbols: "gw/ㄍㄨ", Examples: "瓜"},
+          {IPA: "kʷʰ", Symbols: "kw/ㄎㄨ", Examples: "誇"},
+          {IPA: "l", Symbols: "l/ㄌ", Examples: "落"},
+          {IPA: "m̩", Symbols: "m/ㄇ", Examples: "莫/唔"},
+          {IPA: "n", Symbols: "n/ㄋ", Examples: "男"},
+          {IPA: "ŋ", Symbols: "ng/ㄫ ", Examples: "牙"},
+          {IPA: "p", Symbols: "b/ㄅ", Examples: "班"},
+          {IPA: "p̚", Symbols: "-p/-ㄆ", Examples: "濕"},
+          {IPA: "pʰ", Symbols: "p-/ㄆ-", Examples: "拍"},
+          {IPA: "s", Symbols: "s/ㄙ/ㄒ", Examples: "西"},
+          {IPA: "t", Symbols: "d/ㄉ", Examples: "打"},
+          {IPA: "t̚", Symbols: "-t/-ㄊ", Examples: "失"},
+          {IPA: "tʰ", Symbols: "t-/ㄊ-", Examples: "拖"},
+          {IPA: "ts", Symbols: "z/ㄗ/ㄐ", Examples: "將"},
+          {IPA: "tsʰ", Symbols: "c/ㄘ/ㄑ", Examples: "鏘"},
+          {IPA: "w", Symbols: "w/ㄨ", Examples: "活"},
+          {IPA: "ŋ̩", Symbols: "ng/ㄫ ", Examples: "五"},
+      ],
+      vowels: [
             {IPA: "aː", Symbols: "aa/ㄚ", Examples: "亞"},
             {IPA: "aːi", Symbols: "aai/ㄞ", Examples: "界"},
             {IPA: "aːu", Symbols: "aau/ㄠ", Examples: "交"},
@@ -101,7 +98,7 @@ const languages = {
             {IPA: "uːy", Symbols: "ui/ㄨ一", Examples: "回"},
             {IPA: "yː", Symbols: "yu/ㄩ", Examples: "於"},
       ],
-    },  
+    },
     hokkien:{
         consonants: [
             {IPA: 'p', Symbols: 'p/ㄅ', Examples: '布 (pòo)'},
@@ -140,45 +137,6 @@ const languages = {
     }
 }
 
-let table = document.createElement('table');
-let tr = document.createElement('tr');
-let array = ['IPA', 'Symbols', 'Examples'];
-
-
-let lang1Consonants = languages.mandarin.consonants
-
-
-for (let j = 0; j < array.length; j++) {
-  let th = document.createElement('th'); //column
-  let text = document.createTextNode(array[j]); //cell
-  th.appendChild(text);
-  tr.appendChild(th);
-}
-table.appendChild(tr);
-
-for (let i = 0; i < lang1Consonants.length; i++) {
-  let tr = document.createElement('tr');
-
-  let td1 = document.createElement('td');
-  let td2 = document.createElement('td');
-  let td3 = document.createElement('td');
-  //let td4 = document.createElement('td');
-
-  let text1 = document.createTextNode(lang1Consonants[i].IPA);
-  let text2 = document.createTextNode(lang1Consonants[i].Symbols);
-  let text3 = document.createTextNode(lang1Consonants[i].Examples);
-  //let text4 = document.createTextNode('Text4');
-
-  td1.appendChild(text1);
-  td2.appendChild(text2);
-  td3.appendChild(text3);
-  //td4.appendChild(text4);
-
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  //tr.appendChild(td4);
-
-  table.appendChild(tr);
-}
-document.body.appendChild(table);
+//-----------------------------------------------------------------------------------------
+//section to combine
+//-----------------------------------------------------------------------------------------

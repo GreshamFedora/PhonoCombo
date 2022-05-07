@@ -140,3 +140,16 @@ const languages = {
 //-----------------------------------------------------------------------------------------
 //section to combine
 //-----------------------------------------------------------------------------------------
+
+//function tableFormer(language1, language2) {
+//sets up keys for combination in next step and sets up lang variable for later access
+
+let lang1 = languages.mandarin.consonants
+let lang1Key = languages.mandarin.consonants.map( x => {
+  return x.IPA
+})
+let lang1Vowels = languages.mandarin.vowels
+let lang1VowelKey = languages.mandarin.vowels.map( x => {
+  return x.IPA
+})
+//console.log(lang1)

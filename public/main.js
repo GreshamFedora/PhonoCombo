@@ -153,3 +153,13 @@ let lang1VowelKey = languages.mandarin.vowels.map( x => {
   return x.IPA
 })
 //console.log(lang1)
+
+let lang2 = languages.cantonese.consonants
+let lang2Key = languages.cantonese.consonants.map( x => {
+  return x.IPA
+})
+let lang2Vowels = languages.cantonese.vowels
+let lang2VowelKey = languages.cantonese.vowels.map( x => {
+    return x.IPA
+  })
+//console.log(lang1Vowels)

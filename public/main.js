@@ -163,3 +163,17 @@ let lang2VowelKey = languages.cantonese.vowels.map( x => {
     return x.IPA
   })
 //console.log(lang1Vowels)
+
+
+//forms key with duplicates to be filterd out in next step
+let langKeys = [...lang1Key,...lang2Key]
+let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
+//console.log(lang2VowelKey)
+
+//this function takes the combined keys and filters them out for the distinct 
+//keys creating the key to forming the combined tables i.e. there are no repeating 
+//elements in the array afterwars
+const distinct = arr => arr.filter((item, index) => arr.indexOf(item) === index);
+
+let coLangKey = distinct(langKeys)
+//console.log(coLangKey)

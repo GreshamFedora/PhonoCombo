@@ -177,3 +177,27 @@ const distinct = arr => arr.filter((item, index) => arr.indexOf(item) === index)
 
 let coLangKey = distinct(langKeys)
 //console.log(coLangKey)
+
+
+/*
+store missing items in each using key to id what items in the key are missing 
+from each lang
+Basic principals
+*/
+function check(a, b) {
+    let missing = []
+    a.map(value => {
+        // B did not include value
+        if (!b.includes(value)) {
+            // Output
+            missing.push(a.indexOf(value))
+        }
+    });
+    return missing
+}
+
+const lang1MissingPosition = check(coLangKey, lang1Key)
+const lang2MissingPosition = check(coLangKey, lang2Key)
+
+//console.log(lang1MissingPosition)
+//console.log(lang2MissingPosition)

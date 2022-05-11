@@ -201,3 +201,20 @@ const lang2MissingPosition = check(coLangKey, lang2Key)
 
 //console.log(lang1MissingPosition)
 //console.log(lang2MissingPosition)
+
+/*
+ uses missing1 (the locations langKeys that are missing from the language in 
+question) and adds the missing elements to said language to then be combined 
+with other lang
+*/
+const missingAdder = (missingElem, langNeedingElems) => {
+    for (i = 0; i < missingElem.length; i++) {
+      langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
+      
+    }
+    return langNeedingElems
+  }
+  //only lang2 needs to be processed as lang is automatically in order
+  missingAdder(lang1MissingPosition, lang1)
+  missingAdder(lang2MissingPosition, lang2)
+  

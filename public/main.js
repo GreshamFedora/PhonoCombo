@@ -214,7 +214,7 @@ const missingAdder = (missingElem, langNeedingElems) => {
     }
     return langNeedingElems
   }
-  //only lang2 needs to be processed as lang is automatically in order
+  //only lang2 needs to be processed as lang1 is automatically in order
   missingAdder(lang1MissingPosition, lang1)
   missingAdder(lang2MissingPosition, lang2)
   

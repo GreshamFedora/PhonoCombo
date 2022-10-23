@@ -218,3 +218,13 @@ const missingAdder = (missingElem, langNeedingElems) => {
   missingAdder(lang1MissingPosition, lang1)
   missingAdder(lang2MissingPosition, lang2)
   
+  
+
+/* 
+sorting according to coLangKey for easy combination into pre-table format & 
+so that coLangKey could be sorted later if needed e.g. via a master key such 
+as prioritizing articulator position in mouth or series such as zh-ch-sh or 
+order like this series but dependent on first language i.e. so that you get 
+different orders based on your first language or TL OR a drop down allowing 
+items to be sorted via this type of option
+*/

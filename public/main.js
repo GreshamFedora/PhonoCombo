@@ -228,3 +228,15 @@ order like this series but dependent on first language i.e. so that you get
 different orders based on your first language or TL OR a drop down allowing 
 items to be sorted via this type of option
 */
+function langSort(keyToUse, languagetoSort) {
+    let output = []
+    for (i = 0; i < keyToUse.length; i++) {
+      for (j = 0; j < languagetoSort.length; j++){
+        if (keyToUse[i] === languagetoSort[j].IPA) {
+          output.push(languagetoSort[j])
+        }
+      }
+    }
+    return output
+  }
+  

@@ -240,3 +240,27 @@ function langSort(keyToUse, languagetoSort) {
     return output
   }
   
+  //use coLangKey as key to insert lang objects into new array using fxn
+
+const sortedLang = langSort(coLangKey, lang2)
+
+
+//console.log(lang1)
+//console.log(sortedLang)
+
+//combines languages to be able to be then fed to ejs
+const combinedLangs = (a,b) => {
+    let combinedObjs = []
+    for (i = 0; i < a.length; i++) {
+        combinedObjs.push(({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples}))
+    }
+    return combinedObjs
+}
+
+
+combinedLangsForTable = combinedLangs(lang1, sortedLang)
+console.log(combinedLangsForTable)
+//-----------------------------------------------------------------------------------------
+// END section to combine
+// NEXT gen table
+//-----------------------------------------------------------------------------------------

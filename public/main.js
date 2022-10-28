@@ -140,3 +140,132 @@ const languages = {
 //-----------------------------------------------------------------------------------------
 //section to combine
 //-----------------------------------------------------------------------------------------
+
+
+//function tableFormer(language1, language2) {
+//sets up keys for combination in next step and sets up lang variable for later access
+
+let lang1 = languages.mandarin.consonants
+let lang1Key = languages.mandarin.consonants.map( x => {
+  return x.IPA
+})
+let lang1Vowels = languages.mandarin.vowels
+let lang1VowelKey = languages.mandarin.vowels.map( x => {
+  return x.IPA
+})
+//console.log(lang1)
+
+let lang2 = languages.cantonese.consonants
+let lang2Key = languages.cantonese.consonants.map( x => {
+  return x.IPA
+})
+let lang2Vowels = languages.cantonese.vowels
+let lang2VowelKey = languages.cantonese.vowels.map( x => {
+    return x.IPA
+  })
+//console.log(lang1Vowels)
+
+//forms key with duplicates to be filterd out in next step
+let langKeys = [...lang1Key,...lang2Key]
+let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
+//console.log(lang2VowelKey)
+
+//this function takes the combined keys and filters them out for the distinct 
+//keys creating the key to forming the combined tables i.e. there are no repeating 
+//elements in the array afterwars
+const distinct = arr => arr.filter((item, index) => arr.indexOf(item) === index);
+
+let coLangKey = distinct(langKeys)
+//console.log(coLangKey)
+
+
+
+//***********************NEEED
+
+
+
+/*
+store missing items in each using key to id what items in the key are missing 
+from each lang
+Basic principals
+*/
+function check(a, b) {
+    let missing = []
+    a.map(value => {
+        // B did not include value
+        if (!b.includes(value)) {
+            // Output
+            missing.push(a.indexOf(value))
+        }
+    });
+    return missing
+}
+
+const lang1MissingPosition = check(coLangKey, lang1Key)
+const lang2MissingPosition = check(coLangKey, lang2Key)
+
+//console.log(lang1MissingPosition)
+//console.log(lang2MissingPosition)
+
+/*
+ uses missing1 (the locations langKeys that are missing from the language in 
+question) and adds the missing elements to said language to then be combined 
+with other lang
+*/
+const missingAdder = (missingElem, langNeedingElems) => {
+  for (i = 0; i < missingElem.length; i++) {
+    langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
+    
+  }
+  return langNeedingElems
+}
+//only lang2 needs to be processed as lang is automatically in order
+missingAdder(lang1MissingPosition, lang1)
+missingAdder(lang2MissingPosition, lang2)
+
+
+
+
+/* 
+sorting according to coLangKey for easy combination into pre-table format & 
+so that coLangKey could be sorted later if needed e.g. via a master key such 
+as prioritizing articulator position in mouth or series such as zh-ch-sh or 
+order like this series but dependent on first language i.e. so that you get 
+different orders based on your first language or TL OR a drop down allowing 
+items to be sorted via this type of option
+*/
+function langSort(keyToUse, languagetoSort) {
+  let output = []
+  for (i = 0; i < keyToUse.length; i++) {
+    for (j = 0; j < languagetoSort.length; j++){
+      if (keyToUse[i] === languagetoSort[j].IPA) {
+        output.push(languagetoSort[j])
+      }
+    }
+  }
+  return output
+}
+//use coLangKey as key to insert lang objects into new array using fxn
+
+const sortedLang = langSort(coLangKey, lang2)
+
+
+//console.log(lang1)
+//console.log(sortedLang)
+
+//combines languages to be able to be then fed to ejs
+const combinedLangs = (a,b) => {
+    let combinedObjs = []
+    for (i = 0; i < a.length; i++) {
+        combinedObjs.push(({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples}))
+    }
+    return combinedObjs
+}
+
+
+combinedLangsForTable = combinedLangs(lang1, sortedLang)
+console.log(combinedLangsForTable)
+//-----------------------------------------------------------------------------------------
+// END section to combine
+// NEXT gen table
+//-----------------------------------------------------------------------------------------

@@ -269,3 +269,58 @@ console.log(combinedLangsForTable)
 // END section to combine
 // NEXT gen table
 //-----------------------------------------------------------------------------------------
+
+
+
+let table = document.createElement('table');
+let tr = document.createElement('tr');
+let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
+
+
+let lang1Consonants = languages.mandarin.consonants
+
+
+for (let j = 0; j < array.length; j++) {
+  let th = document.createElement('th'); //column
+  let text = document.createTextNode(array[j]); //cell
+  th.appendChild(text);
+  tr.appendChild(th);
+}
+table.appendChild(tr);
+
+for (let i = 0; i < combinedLangsForTable.length; i++) {
+  let tr = document.createElement('tr');
+
+  let td1 = document.createElement('td');
+  let td2 = document.createElement('td');
+  let td3 = document.createElement('td');
+  let td4 = document.createElement('td');
+  let td5 = document.createElement('td');
+  
+  //let td4 = document.createElement('td');
+
+  let text1 = document.createTextNode(combinedLangsForTable[i].IPA);
+  let text2 = document.createTextNode(combinedLangsForTable[i].Symbols1);
+  let text3 = document.createTextNode(combinedLangsForTable[i].Symbols2);
+  let text4 = document.createTextNode(combinedLangsForTable[i].Examples1);
+  let text5 = document.createTextNode(combinedLangsForTable[i].Examples2);
+  //let text4 = document.createTextNode('Text4');
+
+  td1.appendChild(text1);
+  td2.appendChild(text2);
+  td3.appendChild(text3);
+  td4.appendChild(text4);
+  td5.appendChild(text5);
+  //td4.appendChild(text4);
+
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
+  tr.appendChild(td5);
+  //tr.appendChild(td4);
+
+  table.appendChild(tr);
+}
+document.body.appendChild(table);
+

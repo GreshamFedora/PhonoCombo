@@ -144,6 +144,9 @@ const languages = {
 
 //sets up keys for combination in next step and sets up lang variable for later access
 
+//************************************************************
+// input MUST BE STRINGS e.g. language 1 must be "mandarin"
+//************************************************************
 function tableFormer(language1, language2) {
   
 let lang1 = languages[language1].consonants
@@ -270,13 +273,13 @@ console.log(combinedLangsForTable)
 return combinedLangsForTable
 }
 
-tableFormer(mandarin.cantonese)
+
 //-----------------------------------------------------------------------------------------
 // END section to combine
 // NEXT gen table
 //-----------------------------------------------------------------------------------------
-/*
-let languagesToOutput = tableFormer(mandarin,cantonese)
+
+let languagesToOutput = tableFormer("mandarin","cantonese")
 
 let table = document.createElement('table');
 let tr = document.createElement('tr');
@@ -294,7 +297,7 @@ tr.appendChild(th);
 }
 table.appendChild(tr);
 
-for (let i = 0; i < languages.length; i++) {
+for (let i = 0; i < languagesToOutput.length; i++) {
 let tr = document.createElement('tr');
 
 let td1 = document.createElement('td');
@@ -337,4 +340,3 @@ document.body.appendChild(table);
 
 
 
-*/

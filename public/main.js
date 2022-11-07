@@ -276,7 +276,7 @@ return combinedLangsForTable
 
 //-----------------------------------------------------------------------------------------
 // END section to combine
-// NEXT gen table
+//checkbox for table gen
 //-----------------------------------------------------------------------------------------
 
 let languagesToOutput = tableFormer("mandarin","cantonese")

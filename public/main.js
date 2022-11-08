@@ -278,7 +278,16 @@ return combinedLangsForTable
 // END section to combine
 //checkbox for table gen
 //-----------------------------------------------------------------------------------------
+document.querySelector('#submitButton').addEventListener('click', languageSelection)
 
+//consider passing in e
+function languageSelection() {
+
+}
+//-----------------------------------------------------------------------------------------
+//END checkbox
+// NEXT gen table
+//-----------------------------------------------------------------------------------------
 let languagesToOutput = tableFormer("mandarin","cantonese")
 
 let table = document.createElement('table');

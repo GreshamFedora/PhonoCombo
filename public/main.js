@@ -329,14 +329,16 @@ function createPhoneticTable(languagesToOutput) {
   document.body.appendChild(table);
   }
 
+
 document.querySelector('#submitButton').addEventListener('click', languageSelection)
 
-//consider passing in e
-function languageSelection() {
+function languageSelection(e) {
   let mandarin = document.querySelector('#mandarin')
   let cantonese = document.querySelector('#cantonese')
   let hokkien = document.querySelector('#hokkien')
-
+  
+  e.preventDefault()
+  
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
   if(checkedArr.filter(Boolean).length > 2) {
     alert(`Please select only two languages to be combined.`)

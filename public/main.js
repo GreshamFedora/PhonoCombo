@@ -338,9 +338,9 @@ function languageSelection(e) {
   let hokkien = document.querySelector('#hokkien')
   
   e.preventDefault()
-  
+
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
-  if(checkedArr.filter(Boolean).length > 2) {
+  if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select only two languages to be combined.`)
   } else {}
 }

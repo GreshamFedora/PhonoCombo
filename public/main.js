@@ -342,7 +342,14 @@ function languageSelection(e) {
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
   if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select only two languages to be combined.`)
-  } else {}
+  } else if (mandarin.checked == true && cantonese.checked == true) {
+    createPhoneticTable(tableFormer("mandarin","cantonese"))
+  } else if (mandarin.checked == true && hokkien.checked == true) {
+    createPhoneticTable(tableFormer("mandarin","hokkien"))
+  } else if (hokkien.checked == true && cantonese.checked == true) {
+    createPhoneticTable(tableFormer("cantonese", "hokkien"))
+  }
+ 
 }
 //-----------------------------------------------------------------------------------------
 //END checkbox

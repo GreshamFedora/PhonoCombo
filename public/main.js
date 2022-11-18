@@ -338,10 +338,11 @@ function languageSelection(e) {
   let hokkien = document.querySelector('#hokkien')
   
   e.preventDefault()
-
+  
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
+  if(document.querySelector('table')) {document.querySelector('table').remove()}
   if(checkedArr.filter(Boolean).length !== 2) {
-    alert(`Please select only two languages to be combined.`)
+    alert(`Please select two languages to be combined.`)
   } else if (mandarin.checked == true && cantonese.checked == true) {
     createPhoneticTable(tableFormer("mandarin","cantonese"))
   } else if (mandarin.checked == true && hokkien.checked == true) {
@@ -349,17 +350,4 @@ function languageSelection(e) {
   } else if (hokkien.checked == true && cantonese.checked == true) {
     createPhoneticTable(tableFormer("cantonese", "hokkien"))
   }
- 
 }
-//-----------------------------------------------------------------------------------------
-//END checkbox
-// NEXT gen table
-//-----------------------------------------------------------------------------------------
-let languagesToOutput = tableFormer("mandarin","cantonese")
-
-let table = document.createElement('table');
-let tr = document.createElement('tr');
-let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
-
-
-//let lang1Consonants = languages.mandarin.consonants

@@ -28,7 +28,7 @@ const languages = {
         {IPA: "ɥ", Symbols: "yu-/-ü-/ㄩ", Examples: "月"},
     ],
     vowels: [
-        {IPA: "a", Symbols: "a/ㄚ/ㄢ/ㄤ<br>er/ㄦ", Examples: "阿, 安, 盎<br>二/兒(儿)"},
+        {IPA: "a", Symbols: "a/ㄚ/ㄢ/ㄤ | er/ㄦ", Examples: "阿, 安, 盎 | 二/兒(儿)"},
         {IPA: "ɛ", Symbols: "yan/-ian/一ㄢ", Examples: "言"},
         {IPA: "æ", Symbols: "yuan/-üan/ㄩㄢ", Examples: "元"},
         {IPA: "e", Symbols: "ye/-ie/yue/-üe/ㄝ", Examples: "也/月"},
@@ -50,8 +50,8 @@ const languages = {
   },
   cantonese: {
     consonants: [
-        {IPA: "f", Symbols: "f/ㄈ", Examples: "客"},
-        {IPA: "h", Symbols: "h/ㄏ", Examples: "虎"},
+        {IPA: "f", Symbols: "f/ㄈ", Examples: "虎"},
+        {IPA: "h", Symbols: "h/ㄏ", Examples: "客"},
         {IPA: "j", Symbols: "j/一", Examples: "月"},
         {IPA: "k", Symbols: "g-/ㄍ", Examples: "家"},
         {IPA: "k̚", Symbols: "-k/-ㄎ", Examples: "識"},
@@ -131,7 +131,7 @@ const languages = {
           {IPA: 't̚', Symbols: 't/◌ㄉ', Examples: '七 (tshit)'},
           {IPA: 'k̚', Symbols: 'k/◌ㄍ', Examples: '角 (kak)'},
       ],
-      vowels: [
+            vowels: [
           {IPA: "a", Symbols: "a/ㄚ", Examples: "鴨 (ah)"}, 
       ]
   }
@@ -205,10 +205,10 @@ function check(a, b) {
   return missing
 }
 
-const lang1MissingPosition = check(coLangKey, lang1Key)
+//const lang1MissingPosition = check(coLangKey, lang1Key)
 const lang2MissingPosition = check(coLangKey, lang2Key)
 
-console.log(lang1MissingPosition)
+//console.log(lang1MissingPosition)
 console.log(lang2MissingPosition)
 
 /*
@@ -224,7 +224,8 @@ for (i = 0; i < missingElem.length; i++) {
 return langNeedingElems
 }
 //only lang2 needs to be processed as lang is automatically in order
-missingAdder(lang1MissingPosition, lang1)
+
+//missingAdder(lang1MissingPosition, lang1)
 missingAdder(lang2MissingPosition, lang2)
 
 
@@ -328,6 +329,7 @@ function createPhoneticTable(languagesToOutput) {
   }
   document.body.appendChild(table);
   }
+
 
 
 document.querySelector('#submitButton').addEventListener('click', languageSelection)

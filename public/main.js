@@ -175,32 +175,37 @@ const languages = {
 // input MUST BE STRINGS e.g. language 1 must be "mandarin"
 //************************************************************
 function tableFormer(language1, language2) {
+    
+  let lang1 = languages[language1].consonants
+  let lang1Key = languages[language1].consonants.map( x => {
+    return x.IPA
+  })
+  let lang1Vowels = languages[language1].vowels
+  let lang1VowelKey = languages[language1].vowels.map( x => {
+    return x.IPA
+  })
+  //console.log(lang1)
   
-let lang1 = languages[language1].consonants
-let lang1Key = languages[language1].consonants.map( x => {
-return x.IPA
-})
-let lang1Vowels = languages[language1].vowels
-let lang1VowelKey = languages[language1].vowels.map( x => {
-return x.IPA
-})
-console.log(lang1)
-
-let lang2 = languages[language2].consonants
-let lang2Key = languages[language2].consonants.map( x => {
-return x.IPA
-})
-let lang2Vowels = languages[language2].vowels
-let lang2VowelKey = languages[language2].vowels.map( x => {
-  return x.IPA
-})
-console.log(lang1Vowels)
-
-//forms key with duplicates to be filterd out in next step
-let langKeys = [...lang1Key,...lang2Key]
-let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
-console.log(lang2VowelKey)
-
+  let lang2 = languages[language2].consonants
+  let lang2Key = languages[language2].consonants.map( x => {
+    return x.IPA
+  })
+  let lang2Vowels = languages[language2].vowels
+  let lang2VowelKey = languages[language2].vowels.map( x => {
+      return x.IPA
+    })
+  //console.log(lang1Vowels)
+  
+  //forms key with duplicates to be filterd out in next step
+  let langKeys = [...lang1Key,...lang2Key]
+  let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
+  
+  // *** Vowel Expansion (VE) so far, so good
+  //console.log(lang1Key)
+  //console.log(lang1VowelKey)
+  //console.log(lang2Key)
+  //console.log(lang2VowelKey)
+  
 //this function takes the combined keys and filters them out for the distinct 
 //keys creating the key to forming the combined tables i.e. there are no repeating 
 //elements in the array afterwars

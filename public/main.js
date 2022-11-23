@@ -212,12 +212,11 @@ function tableFormer(language1, language2) {
 const distinct = arr => arr.filter((item, index) => arr.indexOf(item) === index);
 
 let coLangKey = distinct(langKeys)
-console.log(coLangKey)
+let coVowelKey = distinct(langVowelKeys)
 
-
-
-//***********************NEEED
-
+// VE so far so good
+//console.log(coLangKey)
+//console.log(coVowelKey)
 
 
 /*
@@ -226,22 +225,34 @@ from each lang
 Basic principals
 */
 function check(a, b) {
-  let missing = []
-  a.map(value => {
-      // B did not include value
-      if (!b.includes(value)) {
-          // Output
-          missing.push(a.indexOf(value))
-      }
-  });
-  return missing
+    let missing = []
+    a.map(value => {
+        // B did not include value
+        if (!b.includes(value)) {
+            // Output
+            missing.push(a.indexOf(value))
+        }
+    });
+    return missing
 }
+
 
 //const lang1MissingPosition = check(coLangKey, lang1Key)
 const lang2MissingPosition = check(coLangKey, lang2Key)
 
+//const lang1MissingVowels = check(coVowelKey, lang1VowelKey)
+const lang2MissingVowels = check(coVowelKey, lang2VowelKey)
+
+//console.log(coVowelKey)
+//console.log(lang2VowelKey)
+//console.log(lang2MissingVowels)
+
+//VE looks good
 //console.log(lang1MissingPosition)
-console.log(lang2MissingPosition)
+//console.log(lang2MissingPosition)
+
+//console.log(lang1MissingVowels)
+//console.log(lang2MissingVowels)
 
 /*
 uses missing1 (the locations langKeys that are missing from the language in 

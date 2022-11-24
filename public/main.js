@@ -255,21 +255,34 @@ const lang2MissingVowels = check(coVowelKey, lang2VowelKey)
 //console.log(lang2MissingVowels)
 
 /*
-uses missing1 (the locations langKeys that are missing from the language in 
+ uses missing1 (the locations langKeys that are missing from the language in 
 question) and adds the missing elements to said language to then be combined 
 with other lang
 */
 const missingAdder = (missingElem, langNeedingElems) => {
-for (i = 0; i < missingElem.length; i++) {
-  langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
-  
+  for (i = 0; i < missingElem.length; i++) {
+    langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
+    
+  }
+  return langNeedingElems
 }
-return langNeedingElems
+
+const missingVowelAdder = (missingElem, langNeedingElems) => {
+  for (i = 0; i < missingElem.length; i++) {
+    langNeedingElems.push({IPA: coVowelKey[missingElem[i]], Symbols: "", Examples: ""})
+    
+  }
+  return langNeedingElems
 }
 //only lang2 needs to be processed as lang is automatically in order
-
 //missingAdder(lang1MissingPosition, lang1)
 missingAdder(lang2MissingPosition, lang2)
+
+//VE looks good
+//missingAdder(lang1MissingVowels, lang1)
+missingVowelAdder(lang2MissingVowels, lang2Vowels)
+//console.log(lang2)
+//console.log(lang2Vowels)
 
 
 

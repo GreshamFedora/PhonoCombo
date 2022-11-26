@@ -286,7 +286,6 @@ missingVowelAdder(lang2MissingVowels, lang2Vowels)
 
 
 
-
 /* 
 sorting according to coLangKey for easy combination into pre-table format & 
 so that coLangKey could be sorted later if needed e.g. via a master key such 
@@ -296,38 +295,45 @@ different orders based on your first language or TL OR a drop down allowing
 items to be sorted via this type of option
 */
 function langSort(keyToUse, languagetoSort) {
-let output = []
-for (i = 0; i < keyToUse.length; i++) {
-  for (j = 0; j < languagetoSort.length; j++){
-    if (keyToUse[i] === languagetoSort[j].IPA) {
-      output.push(languagetoSort[j])
+  let output = []
+  for (i = 0; i < keyToUse.length; i++) {
+    for (j = 0; j < languagetoSort.length; j++){
+      if (keyToUse[i] === languagetoSort[j].IPA) {
+        output.push(languagetoSort[j])
+      }
     }
   }
-}
-return output
+  return output
 }
 //use coLangKey as key to insert lang objects into new array using fxn
 
 const sortedLang = langSort(coLangKey, lang2)
+const sortedVowels = langSort(coVowelKey,lang2Vowels)
 
-
-console.log(lang1)
-console.log(sortedLang)
+//VE checks out
+//console.log(sortedVowels)
+//console.log(lang1)
+//console.log(sortedLang)
 
 //combines languages to be able to be then fed to ejs
 const combinedLangs = (a,b) => {
-  let combinedObjs = []
-  for (i = 0; i < a.length; i++) {
-      combinedObjs.push(({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples}))
-  }
-  return combinedObjs
+    let combinedObjs = []
+    for (i = 0; i < a.length; i++) {
+        combinedObjs.push(({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples}))
+    }
+    return combinedObjs
 }
 
 
 combinedLangsForTable = combinedLangs(lang1, sortedLang)
-console.log(combinedLangsForTable)
+combinedVowelsForTable = combinedLangs(lang1Vowels, sortedVowels)
 
-return combinedLangsForTable
+//console.log(combinedLangsForTable)
+
+return {
+  combinedLangsForTable,
+  combinedVowelsForTable
+  };
 }
 
 

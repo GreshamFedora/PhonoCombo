@@ -391,6 +391,8 @@ function createPhoneticTable(languagesToOutput) {
   }
   document.body.appendChild(table);
   }
+  
+
 
 
 
@@ -402,16 +404,23 @@ function languageSelection(e) {
   let hokkien = document.querySelector('#hokkien')
   
   e.preventDefault()
-  
+
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
   if(document.querySelector('table')) {document.querySelector('table').remove()}
   if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select two languages to be combined.`)
   } else if (mandarin.checked == true && cantonese.checked == true) {
-    createPhoneticTable(tableFormer("mandarin","cantonese"))
+        const finalInput = (tableFormer("mandarin","cantonese"))
+        createPhoneticTable(finalInput.combinedLangsForTable)
+        createPhoneticTable(finalInput.combinedVowelsForTable)
   } else if (mandarin.checked == true && hokkien.checked == true) {
-    createPhoneticTable(tableFormer("mandarin","hokkien"))
+        const finalInput = (tableFormer("mandarin","hokkien"))
+        createPhoneticTable(finalInput.combinedLangsForTable)
+        createPhoneticTable(finalInput.combinedVowelsForTable)
   } else if (hokkien.checked == true && cantonese.checked == true) {
-    createPhoneticTable(tableFormer("cantonese", "hokkien"))
+        const finalInput = (tableFormer("cantonese","hokkien"))
+        createPhoneticTable(finalInput.combinedLangsForTable)
+        createPhoneticTable(finalInput.combinedVowelsForTable)
+        
   }
 }

@@ -336,7 +336,7 @@ return {
   };
 }
 
-
+tableFormer('mandarin','cantonese')
 //-----------------------------------------------------------------------------------------
 // END section to combine
 //checkbox for table gen

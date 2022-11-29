@@ -313,6 +313,8 @@ const sortedVowels = langSort(coVowelKey,lang2Vowels)
 //VE checks out
 //console.log(sortedVowels)
 //console.log(lang1)
+
+//output double checked for length
 //console.log(sortedLang)
 
 //combines languages to be able to be then fed to ejs

@@ -317,6 +317,7 @@ const sortedVowels = langSort(coVowelKey,lang2Vowels)
 //output double checked for length
 //console.log(sortedLang)
 
+//ouput here is where length becomes undesired
 //combines languages to be able to be then fed to ejs
 const combinedLangs = (a,b) => {
     let combinedObjs = []
@@ -329,6 +330,7 @@ const combinedLangs = (a,b) => {
 
 combinedLangsForTable = combinedLangs(lang1, sortedLang)
 combinedVowelsForTable = combinedLangs(lang1Vowels, sortedVowels)
+
 
 //console.log(combinedLangsForTable)
 

@@ -1,3 +1,16 @@
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
+
+table {
+	border-collapse: collapse;
+	float: left;
+	margin: 0 2%;
+	text-align: center;
+}
+
+
+th, td {
+	border: 1px solid #242425;
+	padding: 10px px;
+}

@@ -346,18 +346,20 @@ return {
   };
 }
 
-tableFormer('mandarin','cantonese')
 //-----------------------------------------------------------------------------------------
 // END section to combine
 //checkbox for table gen
 //-----------------------------------------------------------------------------------------
 function createPhoneticTable(languagesToOutput) {
+  let div = document.createElement('div') //container
+    
   let table = document.createElement('table');
   let tr = document.createElement('tr');
   let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
   
   
   for (let j = 0; j < array.length; j++) {
+    
     let th = document.createElement('th'); //column
     let text = document.createTextNode(array[j]); //cell
     th.appendChild(text);
@@ -399,7 +401,8 @@ function createPhoneticTable(languagesToOutput) {
   
     table.appendChild(tr);
   }
-  document.body.appendChild(table);
+  div.appendChild(table);
+  document.body.appendChild(div);
   }
   
 
@@ -409,6 +412,29 @@ function createPhoneticTable(languagesToOutput) {
 document.querySelector('#submitButton').addEventListener('click', languageSelection)
 
 function languageSelection(e) {
+  if (document.querySelector('table')) {
+    let parentEl = document.querySelector('table').parentElement
+    // there are simpler methods, but this works
+    const removeChildrenElements = (parent) => {
+      while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+      }
+    }
+
+    removeChildrenElements(parentEl);
+  }
+  if (document.querySelector('table')) {
+    let parentEl = document.querySelector('table').parentElement
+    // there are simpler methods, but this works
+    const removeChildrenElements = (parent) => {
+      while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+      }
+    }
+
+    removeChildrenElements(parentEl);
+  }
+
   let mandarin = document.querySelector('#mandarin')
   let cantonese = document.querySelector('#cantonese')
   let hokkien = document.querySelector('#hokkien')
@@ -416,7 +442,7 @@ function languageSelection(e) {
   e.preventDefault()
 
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
-  if(document.querySelector('table')) {document.querySelector('table').remove()}
+  
   if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select two languages to be combined.`)
   } else if (mandarin.checked == true && cantonese.checked == true) {

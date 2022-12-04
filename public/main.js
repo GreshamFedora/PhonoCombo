@@ -177,37 +177,37 @@ const languages = {
 // input MUST BE STRINGS e.g. language 1 must be "mandarin"
 //************************************************************
 function tableFormer(language1, language2) {
-    
-  let lang1 = languages[language1].consonants
-  let lang1Key = languages[language1].consonants.map( x => {
-    return x.IPA
-  })
-  let lang1Vowels = languages[language1].vowels
-  let lang1VowelKey = languages[language1].vowels.map( x => {
-    return x.IPA
-  })
-  //console.log(lang1)
   
-  let lang2 = languages[language2].consonants
-  let lang2Key = languages[language2].consonants.map( x => {
-    return x.IPA
-  })
-  let lang2Vowels = languages[language2].vowels
-  let lang2VowelKey = languages[language2].vowels.map( x => {
-      return x.IPA
-    })
-  //console.log(lang1Vowels)
-  
-  //forms key with duplicates to be filterd out in next step
-  let langKeys = [...lang1Key,...lang2Key]
-  let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
-  
-  // *** Vowel Expansion (VE) so far, so good
-  //console.log(lang1Key)
-  //console.log(lang1VowelKey)
-  //console.log(lang2Key)
-  //console.log(lang2VowelKey)
-  
+let lang1 = languages[language1].consonants
+let lang1Key = languages[language1].consonants.map( x => {
+return x.IPA
+})
+let lang1Vowels = languages[language1].vowels
+let lang1VowelKey = languages[language1].vowels.map( x => {
+return x.IPA
+})
+//console.log(lang1)
+
+let lang2 = languages[language2].consonants
+let lang2Key = languages[language2].consonants.map( x => {
+return x.IPA
+})
+let lang2Vowels = languages[language2].vowels
+let lang2VowelKey = languages[language2].vowels.map( x => {
+  return x.IPA
+})
+//console.log(lang1Vowels)
+
+//forms key with duplicates to be filterd out in next step
+let langKeys = [...lang1Key,...lang2Key]
+let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
+
+// *** Vowel Expansion (VE) so far, so good
+//console.log(lang1Key)
+//console.log(lang1VowelKey)
+//console.log(lang2Key)
+//console.log(lang2VowelKey)
+
 //this function takes the combined keys and filters them out for the distinct 
 //keys creating the key to forming the combined tables i.e. there are no repeating 
 //elements in the array afterwars
@@ -227,15 +227,15 @@ from each lang
 Basic principals
 */
 function check(a, b) {
-    let missing = []
-    a.map(value => {
-        // B did not include value
-        if (!b.includes(value)) {
-            // Output
-            missing.push(a.indexOf(value))
-        }
-    });
-    return missing
+  let missing = []
+  a.map(value => {
+      // B did not include value
+      if (!b.includes(value)) {
+          // Output
+          missing.push(a.indexOf(value))
+      }
+  });
+  return missing
 }
 
 
@@ -257,24 +257,24 @@ const lang2MissingVowels = check(coVowelKey, lang2VowelKey)
 //console.log(lang2MissingVowels)
 
 /*
- uses missing1 (the locations langKeys that are missing from the language in 
+uses missing1 (the locations langKeys that are missing from the language in 
 question) and adds the missing elements to said language to then be combined 
 with other lang
 */
 const missingAdder = (missingElem, langNeedingElems) => {
-  for (i = 0; i < missingElem.length; i++) {
-    langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
-    
-  }
-  return langNeedingElems
+for (i = 0; i < missingElem.length; i++) {
+  langNeedingElems.push({IPA: coLangKey[missingElem[i]], Symbols: "", Examples: ""})
+  
+}
+return langNeedingElems
 }
 
 const missingVowelAdder = (missingElem, langNeedingElems) => {
-  for (i = 0; i < missingElem.length; i++) {
-    langNeedingElems.push({IPA: coVowelKey[missingElem[i]], Symbols: "", Examples: ""})
-    
-  }
-  return langNeedingElems
+for (i = 0; i < missingElem.length; i++) {
+  langNeedingElems.push({IPA: coVowelKey[missingElem[i]], Symbols: "", Examples: ""})
+  
+}
+return langNeedingElems
 }
 //only lang2 needs to be processed as lang is automatically in order
 //missingAdder(lang1MissingPosition, lang1)
@@ -297,15 +297,15 @@ different orders based on your first language or TL OR a drop down allowing
 items to be sorted via this type of option
 */
 function langSort(keyToUse, languagetoSort) {
-  let output = []
-  for (i = 0; i < keyToUse.length; i++) {
-    for (j = 0; j < languagetoSort.length; j++){
-      if (keyToUse[i] === languagetoSort[j].IPA) {
-        output.push(languagetoSort[j])
-      }
+let output = []
+for (i = 0; i < keyToUse.length; i++) {
+  for (j = 0; j < languagetoSort.length; j++){
+    if (keyToUse[i] === languagetoSort[j].IPA) {
+      output.push(languagetoSort[j])
     }
   }
-  return output
+}
+return output
 }
 //use coLangKey as key to insert lang objects into new array using fxn
 
@@ -315,35 +315,30 @@ const sortedVowels = langSort(coVowelKey,lang2Vowels)
 //VE checks out
 //console.log(sortedVowels)
 //console.log(lang1)
-
 //output double checked for length
-console.log(sortedLang)
+//12/21 console.log(sortedVowels)
 
-console.log(lang1)
+//12/21 console.log(lang1Vowels)
 
 //combines languages to be able to be then fed to ejs
 const combinedLangs = (a,b) => {
-    let combinedObjs = []
-    for (i = 0; i < a.length; i++) {
-        combinedObjs.push({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples})
-    }
-    for (i = a.length; i < b.length; i++) {
-        combinedObjs.push({IPA: b[i].IPA, Symbols1: '', Symbols2: b[i].Symbols, Examples1: '', Examples2: b[i].Examples})
-    }
-    return combinedObjs
+  let combinedObjs = []
+  for (i = 0; i < a.length; i++) {
+      combinedObjs.push({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples})
+  }
+  for (i = a.length; i < b.length; i++) {
+      combinedObjs.push({IPA: b[i].IPA, Symbols1: '', Symbols2: b[i].Symbols, Examples1: '', Examples2: b[i].Examples})
+  }
+  return combinedObjs
 }
-
 
 combinedLangsForTable = combinedLangs(lang1, sortedLang)
 combinedVowelsForTable = combinedLangs(lang1Vowels, sortedVowels)
+let combinedLanguages = [combinedLangsForTable, combinedVowelsForTable]
 
+//12/21 console.log(combinedVowelsForTable)
 
-//console.log(combinedLangsForTable)
-
-return {
-  combinedLangsForTable,
-  combinedVowelsForTable
-  };
+return combinedLanguages
 }
 
 //-----------------------------------------------------------------------------------------

@@ -341,18 +341,19 @@ let combinedLanguages = [combinedLangsForTable, combinedVowelsForTable]
 return combinedLanguages
 }
 
+
 //-----------------------------------------------------------------------------------------
 // END section to combine
 //checkbox for table gen
 //-----------------------------------------------------------------------------------------
 function createPhoneticTable(languagesToOutput) {
   let div = document.createElement('div') //container
-    
+  console.log(languagesToOutput.length)
+for (i = 0; i < languagesToOutput.length; i++) {
   let table = document.createElement('table');
   let tr = document.createElement('tr');
   let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
-  
-  
+
   for (let j = 0; j < array.length; j++) {
     
     let th = document.createElement('th'); //column

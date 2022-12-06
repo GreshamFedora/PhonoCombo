@@ -354,6 +354,7 @@ for (i = 0; i < languagesToOutput.length; i++) {
   let tr = document.createElement('tr');
   let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
 
+
   for (let j = 0; j < array.length; j++) {
     
     let th = document.createElement('th'); //column
@@ -363,7 +364,7 @@ for (i = 0; i < languagesToOutput.length; i++) {
   }
   table.appendChild(tr);
   
-  for (let i = 0; i < languagesToOutput.length; i++) {
+  for (let k = 0; k < languagesToOutput[i].length; k++) {
     let tr = document.createElement('tr');
   
     let td1 = document.createElement('td');

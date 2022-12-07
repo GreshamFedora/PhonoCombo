@@ -375,11 +375,12 @@ for (i = 0; i < languagesToOutput.length; i++) {
     
     //let td4 = document.createElement('td');
   
-    let text1 = document.createTextNode(languagesToOutput[i].IPA);
-    let text2 = document.createTextNode(languagesToOutput[i].Symbols1);
-    let text3 = document.createTextNode(languagesToOutput[i].Symbols2);
-    let text4 = document.createTextNode(languagesToOutput[i].Examples1);
-    let text5 = document.createTextNode(languagesToOutput[i].Examples2);
+
+    let text1 = document.createTextNode(languagesToOutput[i][k].IPA);
+    let text2 = document.createTextNode(languagesToOutput[i][k].Symbols1);
+    let text3 = document.createTextNode(languagesToOutput[i][k].Symbols2);
+    let text4 = document.createTextNode(languagesToOutput[i][k].Examples1);
+    let text5 = document.createTextNode(languagesToOutput[i][k].Examples2);
     //let text4 = document.createTextNode('Text4');
   
     td1.appendChild(text1);
@@ -399,10 +400,10 @@ for (i = 0; i < languagesToOutput.length; i++) {
     table.appendChild(tr);
   }
   div.appendChild(table);
-  document.body.appendChild(div);
   }
+  document.body.appendChild(div);
   
-
+}
 
 
 

@@ -410,20 +410,9 @@ for (i = 0; i < languagesToOutput.length; i++) {
 document.querySelector('#submitButton').addEventListener('click', languageSelection)
 
 function languageSelection(e) {
+  //removes the two tables generated -- it could be done better, but I'm just trying to get it to work
   if (document.querySelector('table')) {
     let parentEl = document.querySelector('table').parentElement
-    // there are simpler methods, but this works
-    const removeChildrenElements = (parent) => {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      }
-    }
-
-    removeChildrenElements(parentEl);
-  }
-  if (document.querySelector('table')) {
-    let parentEl = document.querySelector('table').parentElement
-    // there are simpler methods, but this works
     const removeChildrenElements = (parent) => {
       while (parent.lastChild) {
         parent.removeChild(parent.lastChild);

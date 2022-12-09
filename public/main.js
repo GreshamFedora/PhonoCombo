@@ -422,13 +422,18 @@ function languageSelection(e) {
     removeChildrenElements(parentEl);
   }
 
+  //set up variables
   let mandarin = document.querySelector('#mandarin')
   let cantonese = document.querySelector('#cantonese')
   let hokkien = document.querySelector('#hokkien')
   
+  //stopping button from immediately removing result a split second after click
   e.preventDefault()
 
+  //for use in conditional chain
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
+  let finalInput = []
+
   
   if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select two languages to be combined.`)

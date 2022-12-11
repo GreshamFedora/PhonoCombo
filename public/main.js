@@ -442,15 +442,16 @@ function languageSelection(e) {
         
         finalInput = (tableFormer("mandarin","cantonese"))
         createPhoneticTable(finalInput)
-        
+
   } else if (mandarin.checked == true && hokkien.checked == true) {
-        const finalInput = (tableFormer("mandarin","hokkien"))
-        createPhoneticTable(finalInput.combinedLangsForTable)
-        createPhoneticTable(finalInput.combinedVowelsForTable)
+        
+        finalInput = (tableFormer("mandarin","hokkien"))
+        createPhoneticTable(finalInput)
+
   } else if (hokkien.checked == true && cantonese.checked == true) {
-        const finalInput = (tableFormer("cantonese","hokkien"))
-        createPhoneticTable(finalInput.combinedLangsForTable)
-        createPhoneticTable(finalInput.combinedVowelsForTable)
+        
+        finalInput = (tableFormer("cantonese","hokkien"))
+        createPhoneticTable(finalInput)
         
   }
 }

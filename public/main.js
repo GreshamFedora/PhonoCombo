@@ -432,26 +432,19 @@ function languageSelection(e) {
 
   //for use in conditional chain
   let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
-  let finalInput = []
 
   //conditional chain checks that only two options are selected, then generates the two tables based on choices of 2 out of 3 options
   if(checkedArr.filter(Boolean).length !== 2) {
     alert(`Please select two languages to be combined.`)
 
   } else if (mandarin.checked == true && cantonese.checked == true) {
-        
-        finalInput = (tableFormer("mandarin","cantonese"))
-        createPhoneticTable(finalInput)
+        createPhoneticTable(tableFormer("mandarin","cantonese"))
 
   } else if (mandarin.checked == true && hokkien.checked == true) {
-        
-        finalInput = (tableFormer("mandarin","hokkien"))
-        createPhoneticTable(finalInput)
+        createPhoneticTable(tableFormer("mandarin","hokkien"))
 
   } else if (hokkien.checked == true && cantonese.checked == true) {
-        
-        finalInput = (tableFormer("cantonese","hokkien"))
-        createPhoneticTable(finalInput)
+        createPhoneticTable(tableFormer("cantonese","hokkien"))
         
   }
 }

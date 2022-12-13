@@ -1,7 +1,7 @@
 const languages = {
   mandarin: {
     consonants: [
-        {IPA: "ɕ", Symbols: "x/ㄒ", Examples: "西"},
+        {IPA: "ɕ", Symbols: ["x","ㄒ"], Examples: "西"},
         {IPA: "f", Symbols: "f/ㄈ", Examples: "非"},
         {IPA: "j", Symbols: "y-/i-/一", Examples: "牙"},
         {IPA: "k", Symbols: "g/ㄍ", Examples: "干"},
@@ -163,6 +163,46 @@ const languages = {
           {IPA: "ũ̯ã", Symbols: "oan/ㄨㆩ", Examples: "官 (kuann)"}, 
           {IPA: "ĩ̯ãũ̯", Symbols: "iaun/一ㆯ", Examples: "喓 (iaunn)"}, 
       ]
+  },
+  spanish:{
+    consonants:[
+        {IPA: 'b', Symbols: 'b-/-b-/v-/-v-', Examples: 'bestia, embuste, vaca, envidia, fútbol'},
+        {IPA: 'β', Symbols: '-b-/-v-/-p-', Examples: 'bebé, viva, curva, obtuso, apto'},
+        {IPA: 'd', Symbols: 'd-/-d-', Examples: 'dedo, cuando, aldaba'},
+        {IPA: 'ð', Symbols: '-d-/-d/-t-', Examples: 'dádiva, arder, admirar, atmósfera, juventud'},
+        {IPA: 'f', Symbols: 'f-', Examples: 'fase'},
+        {IPA: 'ɡ', Symbols: 'g/-g-', Examples: 'gato, guerra, lengua'},
+        {IPA: 'ɣ', Symbols: '-g-', Examples: 'trigo, amargo, signo, doctor'},
+        {IPA: 'ʝ', Symbols: '-y-', Examples: 'ayuno'},
+        {IPA: 'ɟʝ', Symbols: 'y-/-y-', Examples: 'yermo, cónyuge'},
+        {IPA: 'k', Symbols: 'c-/qu-/k-', Examples: 'caña, quise, kilo'},
+        {IPA: 'l', Symbols: 'l-', Examples: 'lino'},
+        {IPA: 'm', Symbols: 'm-/-m-', Examples: 'madre, campo'},
+        {IPA: 'ɱ', Symbols: '-n-', Examples: 'anfibio'},
+        {IPA: 'n', Symbols: 'n-/-n/-m', Examples: 'nido, sin, álbum'},
+        {IPA: 'ɲ', Symbols: 'ñ-/-n-', Examples: 'ñandú, cónyuge'},
+        {IPA: 'ŋ', Symbols: '-n-', Examples: 'cinco, tengo'},
+        {IPA: 'p', Symbols: 'p-', Examples: 'pozo'},
+        {IPA: 'r', Symbols: 'r-/-r-/-rr-', Examples: 'rumbo, carro, honra, subrayar'},
+        {IPA: 'ɾ', Symbols: '-r-/-r', Examples: 'caro, bravo, partir'},
+        {IPA: 's', Symbols: 's-/-s-/x-/c-/z-', Examples: 'saco, espita, xenón, cereal, zorro'},
+        {IPA: 'z', Symbols: '-z-/-s-', Examples: 'jazmín, juzgar/isla, mismo, riesgo'},
+        {IPA: 'ʃ', Symbols: 'sh-/-ch-/-x-', Examples: 'show, Rocher, Freixenet'},
+        {IPA: 't', Symbols: 't-', Examples: 'tamiz'},
+        {IPA: 'tʃ', Symbols: 'ch-', Examples: 'chubasco'},
+        {IPA: 'v', Symbols: '-f-', Examples: 'afgano'},
+        {IPA: 'x', Symbols: 'j-/g-/-x-/h-', Examples: 'jamón, general, México, hámster'},
+        {IPA: 'ʎ', Symbols: 'll-', Examples: 'llave'},
+    ],
+    vowels:[
+        {IPA: 'a', Symbols: 'a', Examples: 'mal'},
+        {IPA: 'e', Symbols: 'e', Examples: 'es'},
+        {IPA: 'i', Symbols: 'i/y', Examples: 'di, y'},
+        {IPA: 'o', Symbols: 'o', Examples: 'sol'},
+        {IPA: 'u', Symbols: 'u', Examples: 'su'},
+        {IPA: 'j', Symbols: 'i/y', Examples: 'ciudad, rey'},
+        {IPA: 'w', Symbols: 'u', Examples: 'cuatro, Huila, auto'},
+    ]
   }
 }
 
@@ -178,45 +218,52 @@ const languages = {
 //************************************************************
 function tableFormer(language1, language2) {
   
-let lang1 = languages[language1].consonants
-let lang1Key = languages[language1].consonants.map( x => {
+let lang1Consonants = languages[language1].consonants
+let lang1ConsonantKey = languages[language1].consonants.map( x => {
 return x.IPA
 })
 let lang1Vowels = languages[language1].vowels
 let lang1VowelKey = languages[language1].vowels.map( x => {
 return x.IPA
 })
+//console.log(`language1 = ${language1}`)
+//console.log(`language2 = ${language2}`)
+
 //console.log(lang1)
 
-let lang2 = languages[language2].consonants
-let lang2Key = languages[language2].consonants.map( x => {
+let lang2Consonants = languages[language2].consonants
+let lang2ConsonantKey = languages[language2].consonants.map( x => {
 return x.IPA
 })
 let lang2Vowels = languages[language2].vowels
 let lang2VowelKey = languages[language2].vowels.map( x => {
   return x.IPA
 })
+//console.log(lang1Consonants)
+//console.log(lang1ConsonantKey)
 //console.log(lang1Vowels)
-
-//forms key with duplicates to be filterd out in next step
-let langKeys = [...lang1Key,...lang2Key]
-let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
-
-// *** Vowel Expansion (VE) so far, so good
-//console.log(lang1Key)
 //console.log(lang1VowelKey)
-//console.log(lang2Key)
+
+//console.log(lang2Consonants)
+//console.log(lang2ConsonantKey)
+//console.log(lang2Vowels)
 //console.log(lang2VowelKey)
 
-//this function takes the combined keys and filters them out for the distinct 
-//keys creating the key to forming the combined tables i.e. there are no repeating 
-//elements in the array afterwars
+
+//forms key with duplicates to be filterd out in next step
+let langConsonantKeys = [...lang1ConsonantKey,...lang2ConsonantKey]
+let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]
+
+
+//console.log(langConsonantKeys)
+//console.log(langVowelKeys)
+
+//removes duplicate from langConsonantKeys and langVowelKeys
 const distinct = arr => arr.filter((item, index) => arr.indexOf(item) === index);
 
-let coLangKey = distinct(langKeys)
+let coLangKey = distinct(langConsonantKeys)
 let coVowelKey = distinct(langVowelKeys)
 
-// VE so far so good
 //console.log(coLangKey)
 //console.log(coVowelKey)
 
@@ -224,7 +271,7 @@ let coVowelKey = distinct(langVowelKeys)
 /*
 store missing items in each using key to id what items in the key are missing 
 from each lang
-Basic principals
+
 */
 function check(a, b) {
   let missing = []
@@ -239,25 +286,22 @@ function check(a, b) {
 }
 
 
-//const lang1MissingPosition = check(coLangKey, lang1Key)
-const lang2MissingPosition = check(coLangKey, lang2Key)
+const lang1MissingConsonants = check(coLangKey, lang1ConsonantKey)
+const lang2MissingConsonants = check(coLangKey, lang2ConsonantKey)
 
-//const lang1MissingVowels = check(coVowelKey, lang1VowelKey)
+const lang1MissingVowels = check(coVowelKey, lang1VowelKey)
 const lang2MissingVowels = check(coVowelKey, lang2VowelKey)
 
-//console.log(coVowelKey)
-//console.log(lang2VowelKey)
-//console.log(lang2MissingVowels)
 
-//VE looks good
-//console.log(lang1MissingPosition)
-//console.log(lang2MissingPosition)
+
+//console.log(lang1MissingConsonants)
+//console.log(lang2MissingConsonants)
 
 //console.log(lang1MissingVowels)
 //console.log(lang2MissingVowels)
 
 /*
-uses missing1 (the locations langKeys that are missing from the language in 
+uses missing1 (the locations langConsonantKeys that are missing from the language in 
 question) and adds the missing elements to said language to then be combined 
 with other lang
 */
@@ -276,15 +320,18 @@ for (i = 0; i < missingElem.length; i++) {
 }
 return langNeedingElems
 }
-//only lang2 needs to be processed as lang is automatically in order
-//missingAdder(lang1MissingPosition, lang1)
-missingAdder(lang2MissingPosition, lang2)
+//only lang2Consonants needs to be processed as lang is automatically in order
+//12/22/22 ignoring above line and adding lang1 back in
+missingAdder(lang1MissingConsonants, lang1Consonants)
+missingAdder(lang2MissingConsonants, lang2Consonants)
 
-//VE looks good
-//missingAdder(lang1MissingVowels, lang1)
+
+missingAdder(lang1MissingVowels, lang1Vowels)
 missingVowelAdder(lang2MissingVowels, lang2Vowels)
-//console.log(lang2)
+//console.log(lang2Consonants)
 //console.log(lang2Vowels)
+//console.log(lang1Consonants)
+//console.log(lang1Vowels)
 
 
 
@@ -308,22 +355,21 @@ for (i = 0; i < keyToUse.length; i++) {
 return output
 }
 //use coLangKey as key to insert lang objects into new array using fxn
+const sortedLang1Consonants = langSort(coLangKey, lang1Consonants)
+const sortedLang1Vowels = langSort(coVowelKey,lang1Vowels)
+const sortedLang2Consonants = langSort(coLangKey, lang2Consonants)
+const sortedLang2Vowels = langSort(coVowelKey,lang2Vowels)
 
-const sortedLang = langSort(coLangKey, lang2)
-const sortedVowels = langSort(coVowelKey,lang2Vowels)
-
-//VE checks out
-//console.log(sortedVowels)
-//console.log(lang1)
-//output double checked for length
-//12/21 console.log(sortedVowels)
-
-//12/21 console.log(lang1Vowels)
+//console.log(sortedLang1Consonants)
+console.log(sortedLang1Vowels)
+//console.log(sortedLang2Consonants)
+console.log(sortedLang2Vowels)
 
 //combines languages to be able to be then fed to ejs
 const combinedLangs = (a,b) => {
   let combinedObjs = []
   for (i = 0; i < a.length; i++) {
+
       combinedObjs.push({IPA: a[i].IPA, Symbols1: a[i].Symbols, Symbols2: b[i].Symbols, Examples1: a[i].Examples, Examples2: b[i].Examples})
   }
   for (i = a.length; i < b.length; i++) {
@@ -332,14 +378,19 @@ const combinedLangs = (a,b) => {
   return combinedObjs
 }
 
-combinedLangsForTable = combinedLangs(lang1, sortedLang)
-combinedVowelsForTable = combinedLangs(lang1Vowels, sortedVowels)
+combinedLangsForTable = combinedLangs(sortedLang1Consonants, sortedLang2Consonants)
+combinedVowelsForTable = combinedLangs(sortedLang1Vowels, sortedLang2Vowels)
 let combinedLanguages = [combinedLangsForTable, combinedVowelsForTable]
 
+//console.log(combinedLangsForTable)
 //12/21 console.log(combinedVowelsForTable)
 
 return combinedLanguages
+
+
 }
+
+
 
 
 //-----------------------------------------------------------------------------------------
@@ -347,104 +398,119 @@ return combinedLanguages
 //checkbox for table gen
 //-----------------------------------------------------------------------------------------
 function createPhoneticTable(languagesToOutput) {
-  let div = document.createElement('div') //container
-  console.log(languagesToOutput.length)
+let div = document.createElement('div') //container
+//console.log(languagesToOutput.length)
 for (i = 0; i < languagesToOutput.length; i++) {
-  let table = document.createElement('table');
-  let tr = document.createElement('tr');
-  let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
+let table = document.createElement('table');
+let tr = document.createElement('tr');
+let array = ['IPA', 'Symbols1', 'Symbols2', 'Examples1', 'Examples2'];
 
 
-  for (let j = 0; j < array.length; j++) {
-    
-    let th = document.createElement('th'); //column
-    let text = document.createTextNode(array[j]); //cell
-    th.appendChild(text);
-    tr.appendChild(th);
-  }
-  table.appendChild(tr);
+for (let j = 0; j < array.length; j++) {
   
-  for (let k = 0; k < languagesToOutput[i].length; k++) {
-    let tr = document.createElement('tr');
-  
-    let td1 = document.createElement('td');
-    let td2 = document.createElement('td');
-    let td3 = document.createElement('td');
-    let td4 = document.createElement('td');
-    let td5 = document.createElement('td');
-    
-    //let td4 = document.createElement('td');
-  
-
-    let text1 = document.createTextNode(languagesToOutput[i][k].IPA);
-    let text2 = document.createTextNode(languagesToOutput[i][k].Symbols1);
-    let text3 = document.createTextNode(languagesToOutput[i][k].Symbols2);
-    let text4 = document.createTextNode(languagesToOutput[i][k].Examples1);
-    let text5 = document.createTextNode(languagesToOutput[i][k].Examples2);
-    //let text4 = document.createTextNode('Text4');
-  
-    td1.appendChild(text1);
-    td2.appendChild(text2);
-    td3.appendChild(text3);
-    td4.appendChild(text4);
-    td5.appendChild(text5);
-    //td4.appendChild(text4);
-  
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    tr.appendChild(td5);
-    //tr.appendChild(td4);
-  
-    table.appendChild(tr);
-  }
-  div.appendChild(table);
-  }
-  document.body.appendChild(div);
-  
+  let th = document.createElement('th'); //column
+  let text = document.createTextNode(array[j]); //cell
+  th.appendChild(text);
+  tr.appendChild(th);
 }
+table.appendChild(tr);
+
+for (let k = 0; k < languagesToOutput[i].length; k++) {
+  let tr = document.createElement('tr');
+
+  let td1 = document.createElement('td');
+  let td2 = document.createElement('td');
+  let td3 = document.createElement('td');
+  let td4 = document.createElement('td');
+  let td5 = document.createElement('td');
+  
+  //let td4 = document.createElement('td');
+
+  let text1 = document.createTextNode(languagesToOutput[i][k].IPA);
+  let text2 = document.createTextNode(languagesToOutput[i][k].Symbols1);
+  let text3 = document.createTextNode(languagesToOutput[i][k].Symbols2);
+  let text4 = document.createTextNode(languagesToOutput[i][k].Examples1);
+  let text5 = document.createTextNode(languagesToOutput[i][k].Examples2);
+  //let text4 = document.createTextNode('Text4');
+
+  td1.appendChild(text1);
+  td2.appendChild(text2);
+  td3.appendChild(text3);
+  td4.appendChild(text4);
+  td5.appendChild(text5);
+  //td4.appendChild(text4);
+
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
+  tr.appendChild(td5);
+  //tr.appendChild(td4);
+
+  table.appendChild(tr);
+}
+div.appendChild(table);
+}
+document.body.appendChild(div);
+
+}
+
+
 
 
 
 document.querySelector('#submitButton').addEventListener('click', languageSelection)
 
 function languageSelection(e) {
-  //removes the two tables generated -- it could be done better, but I'm just trying to get it to work
-  if (document.querySelector('table')) {
-    let parentEl = document.querySelector('table').parentElement
-    const removeChildrenElements = (parent) => {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      }
+//removes the two tables generated -- it could be done better, but I'm just trying to get it to work
+console.log(e)
+if (document.querySelector('table')) {
+  let parentEl = document.querySelector('table').parentElement
+  const removeChildrenElements = (parent) => {
+    while (parent.lastChild) {
+      parent.removeChild(parent.lastChild);
     }
-
-    removeChildrenElements(parentEl);
   }
 
-  //set up variables
-  let mandarin = document.querySelector('#mandarin')
-  let cantonese = document.querySelector('#cantonese')
-  let hokkien = document.querySelector('#hokkien')
+  removeChildrenElements(parentEl);
+  parentEl.remove()
   
-  //stopping button from immediately removing result a split second after click
-  e.preventDefault()
+}
 
-  //for use in conditional chain
-  let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked]
+//set up variables
+let mandarin = document.querySelector('#mandarin')
+let cantonese = document.querySelector('#cantonese')
+let hokkien = document.querySelector('#hokkien')
+let spanish = document.querySelector('#spanish')
 
-  //conditional chain checks that only two options are selected, then generates the two tables based on choices of 2 out of 3 options
-  if(checkedArr.filter(Boolean).length !== 2) {
-    alert(`Please select two languages to be combined.`)
+//stopping button from immediately removing result a split second after click
+e.preventDefault()
+e.cancelBubble = true;
+//for use in conditional chain
+let checkedArr = [mandarin.checked, cantonese.checked, hokkien.checked, spanish.checked]
 
-  } else if (mandarin.checked == true && cantonese.checked == true) {
-        createPhoneticTable(tableFormer("mandarin","cantonese"))
+//conditional chain checks that only two options are selected, then generates the two tables based on choices of 2 out of 3 options
+if(checkedArr.filter(Boolean).length !== 2) {
+  alert(`Please select two languages to be combined.`)
 
-  } else if (mandarin.checked == true && hokkien.checked == true) {
-        createPhoneticTable(tableFormer("mandarin","hokkien"))
+} else if (mandarin.checked == true && cantonese.checked == true) {
+      createPhoneticTable(tableFormer("mandarin","cantonese"))
+      //if (document.querySelector())
+} else if (mandarin.checked == true && hokkien.checked == true) {
+      createPhoneticTable(tableFormer("mandarin","hokkien"))
 
-  } else if (hokkien.checked == true && cantonese.checked == true) {
-        createPhoneticTable(tableFormer("cantonese","hokkien"))
-        
-  }
+} else if (cantonese.checked == true && hokkien.checked == true) {
+      createPhoneticTable(tableFormer("cantonese","hokkien"))
+
+} else if (mandarin.checked == true && spanish.checked == true) {
+      createPhoneticTable(tableFormer("mandarin","spanish"))
+
+} else if (cantonese.checked == true && spanish.checked == true) {
+      createPhoneticTable(tableFormer("cantonese","spanish"))
+
+} else if (hokkien.checked == true && spanish.checked == true) {
+      createPhoneticTable(tableFormer("hokkien","spanish"))
+
+}
+document.getElementById("form").reset()
 }

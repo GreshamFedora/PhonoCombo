@@ -1,7 +1,9 @@
+//could change Symbols to array and add breaks
+
 const languages = {
   mandarin: {
     consonants: [
-        {IPA: "ɕ", Symbols: ["x","ㄒ"], Examples: "西"},
+        {IPA: "ɕ", Symbols: "x/ㄒ", Examples: "西"},
         {IPA: "f", Symbols: "f/ㄈ", Examples: "非"},
         {IPA: "j", Symbols: "y-/i-/一", Examples: "牙"},
         {IPA: "k", Symbols: "g/ㄍ", Examples: "干"},

@@ -516,3 +516,5 @@ if(checkedArr.filter(Boolean).length !== 2) {
 }
 document.getElementById("form").reset()
 }
+
+function consistencyEnforcer (combinedLanguage, language1, language2) {

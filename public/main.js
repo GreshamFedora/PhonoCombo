@@ -518,3 +518,7 @@ document.getElementById("form").reset()
 }
 
 function consistencyEnforcer (combinedLanguage, language1, language2) {
+  let lang1ConsonantKey = languages[language1].consonants.map( x => {
+return x.IPA
+})
+  

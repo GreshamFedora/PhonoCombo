@@ -521,4 +521,6 @@ function consistencyEnforcer (combinedLanguage, language1, language2) {
   let lang1ConsonantKey = languages[language1].consonants.map( x => {
 return x.IPA
 })
-  
+let lang1VowelKey = languages[language1].vowels.map( x => {
+  return x.IPA
+})

@@ -524,3 +524,6 @@ return x.IPA
 let lang1VowelKey = languages[language1].vowels.map( x => {
   return x.IPA
 })
+let lang2ConsonantKey = languages[language2].consonants.map( x => {
+  return x.IPA
+})

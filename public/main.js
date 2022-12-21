@@ -532,3 +532,4 @@ let lang2VowelKey = languages[language2].vowels.map( x => {
 })
 
 let langConsonantKeys = [...lang1ConsonantKey,...lang2ConsonantKey]
+let langVowelKeys = [...lang1VowelKey,...lang2VowelKey]

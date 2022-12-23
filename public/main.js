@@ -540,3 +540,15 @@ let combinedLangConsonantKey = combinedLanguage.consonants.map( x => {
 let combinedLangVowelKey = combinedLanguage.vowels.map( x => {
     return x.IPA
 })
+
+//if combined has a value that langConsonantKeys doesn't, then find the index of combined's object with that IPA value and strip it from combined
+//arr1 is bigger & returns what arr1 has that arr2 doesn't
+//let difference = arr1.filter(x => !arr2.includes(x));
+//this gets the IPA keys not found in langConsonantKeys
+
+let consonantsToSplice = findIndicesOfConsonantsToSplice(combinedLangConsonantKey, langConsonantKeys)
+let vowelsToSplice = findIndicesOfVowelsToSplice(combinedLangVowelKey, langVowelKeys)
+
+return arraySplicer(consonantsToSplice, vowelsToSplice, combinedLanguage)
+
+}

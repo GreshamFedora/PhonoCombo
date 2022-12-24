@@ -552,3 +552,14 @@ let vowelsToSplice = findIndicesOfVowelsToSplice(combinedLangVowelKey, langVowel
 return arraySplicer(consonantsToSplice, vowelsToSplice, combinedLanguage)
 
 }
+
+
+function findIndicesOfConsonantsToSplice (combinedLangConsonantKey, langConsonantKeys) {
+  let difference = combinedLangConsonantKey.filter(x => !langConsonantKeys.includes(x));
+  let consonantIndicesNeeded = []
+
+  for(i = 0; i < difference.length; i++) {
+  consonantIndicesNeeded.push(combinedLangConsonantKey.indexOf(difference[i]))
+}
+return consonantIndicesNeeded
+}

@@ -563,3 +563,14 @@ function findIndicesOfConsonantsToSplice (combinedLangConsonantKey, langConsonan
 }
 return consonantIndicesNeeded
 }
+
+
+function findIndicesOfVowelsToSplice (combinedLangVowelKey, langVowelKeys) {
+  let difference = combinedLangVowelKey.filter(x => !langVowelKeys.includes(x));
+  let vowelIndicesNeeded = []
+
+  for(i = 0; i < difference.length; i++) {
+  vowelIndicesNeeded.push(combinedLangVowelKey.indexOf(difference[i]))
+}
+return vowelIndicesNeeded
+}

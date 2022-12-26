@@ -574,3 +574,13 @@ function findIndicesOfVowelsToSplice (combinedLangVowelKey, langVowelKeys) {
 }
 return vowelIndicesNeeded
 }
+
+function arraySplicer (consonantsToSplice, vowelstoSplice, combinedLanguage) {
+  for (key of consonantsToSplice) {
+      combinedLanguage.consonants.splice(consonantsToSplice,1)
+  }
+  for (key of vowelstoSplice) {
+      combinedLanguage.vowels.splice(vowelstoSplice,1)
+  }
+  return combinedLanguage
+}

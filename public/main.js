@@ -584,3 +584,6 @@ function arraySplicer (consonantsToSplice, vowelstoSplice, combinedLanguage) {
   }
   return combinedLanguage
 }
+
+
+console.log(consistencyEnforcer(combinedLang, "mandarin", "hokkien"))

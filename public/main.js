@@ -587,3 +587,7 @@ function arraySplicer (consonantsToSplice, vowelstoSplice, combinedLanguage) {
 
 
 console.log(consistencyEnforcer(combinedLang, "mandarin", "hokkien"))
+
+//console.log(combinedLang)
+//console.log(consistencyChecker(combinedLang, mandarin, spanish))
+//console.log(consistencyChecker(combinedLang, hokkien, spanish))

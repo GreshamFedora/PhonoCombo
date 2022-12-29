@@ -591,3 +591,12 @@ console.log(consistencyEnforcer(combinedLang, "mandarin", "hokkien"))
 //console.log(combinedLang)
 //console.log(consistencyChecker(combinedLang, mandarin, spanish))
 //console.log(consistencyChecker(combinedLang, hokkien, spanish))
+
+
+// PSEUDOCODE
+// O = forming up IPA keys to compare 
+//  = compare the lang1+2 consonant and vowel keys with  combined lang analogues for consistency, identifying indices of items not found in lang1 + lang2's
+//  = use indices to strip said keys' objects out of lang1+2 
+//  = return lang1+2
+
+//if this doesn't work, add IPA keys after consonant and vowels in each object in languages and use those to conduct the above process
